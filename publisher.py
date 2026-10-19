@@ -61,6 +61,8 @@ def main():
 
     if not title or not content:
         raise SystemExit("ERROR: article.json must contain non-empty 'title' and 'content'.")
+    if title == "عنوان المقال هنا" or "ضع محتوى المقال" in content:
+        raise SystemExit("ERROR: article.json is still the template. Replace it with a reviewed article before publishing.")
     if not isinstance(labels, list) or not all(isinstance(label, str) for label in labels):
         raise SystemExit("ERROR: 'labels' must be a list of strings.")
 
